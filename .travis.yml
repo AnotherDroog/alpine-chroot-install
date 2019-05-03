@@ -8,13 +8,11 @@ env:
     - ARCH=armv7
     - ARCH=aarch64
 install:
-  - sudo ./alpine-chroot-install
+  - sudo ./alpine-chroot-install -a $ARCH -p build-base -p bitcoin-cli
 script:
   - /alpine/enter-chroot uname -a
   - /alpine/enter-chroot env
   - /alpine/enter-chroot -u $USER env
   - sudo /alpine/enter-chroot -u $USER env
-  - apk add bitcoin-cli
-  - apk add build-base
-  - bpath="$(which bitcoin-cli)"
-  - file $bpath
+  - sudo alpine-chroot-install -d /alpine -p build-base -p cmake
+  - /alpine/enter-chroot -u $USER bpath="$(which bitcoin-cli)" && file $bpath
