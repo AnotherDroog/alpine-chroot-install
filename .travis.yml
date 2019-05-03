@@ -14,5 +14,4 @@ script:
   - /alpine/enter-chroot env
   - /alpine/enter-chroot -u $USER env
   - sudo /alpine/enter-chroot -u $USER env
-  - sudo alpine-chroot-install -d /alpine -p build-base -p cmake
   - /alpine/enter-chroot -u $USER file /usr/bin/bitcoin-cli
