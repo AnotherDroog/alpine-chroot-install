@@ -10,8 +10,4 @@ env:
 install:
   - sudo ./alpine-chroot-install -a $ARCH -p build-base -p bitcoin-cli
 script:
-  - /alpine/enter-chroot uname -a
-  - /alpine/enter-chroot env
-  - /alpine/enter-chroot -u $USER env
-  - sudo /alpine/enter-chroot -u $USER env
   - /alpine/enter-chroot -u $USER file /usr/bin/bitcoin-cli
