@@ -5,7 +5,6 @@ env:
   matrix:
     - ARCH=x86_64
     - ARCH=armhf
-    - ARCH=armv7
     - ARCH=aarch64
 install:
   - sudo ./alpine-chroot-install -a $ARCH -p build-base -p bitcoin-cli
